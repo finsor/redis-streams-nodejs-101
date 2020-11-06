@@ -1,0 +1,19 @@
+{
+  "name": "redis-streams-nodejs-101",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finsor/redis-streams-nodejs-101.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/finsor/redis-streams-nodejs-101/issues"
+  },
+  "homepage": "https://github.com/finsor/redis-streams-nodejs-101#readme"
+}
