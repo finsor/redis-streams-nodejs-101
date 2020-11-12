@@ -6,13 +6,25 @@ class RedisWriter {
     this.stream = stream;
   }
 
-  // TODO: change parameters to single object of flexible length.
-  write(k, v) {
-    this.redisClient.xadd(this.stream, "*", k, v, function (err) {
+  write(obj) {
+    const message = this.objectToMessage(obj);
+
+    this.redisClient.xadd(this.stream, "*", ...message, function (err) {
       if (err) {
         console.log(err);
       }
     });
+  }
+
+  objectToMessage(obj) {
+    const message = [];
+
+    for (var key in obj) {
+      message.push(key);
+      message.push(obj[key]);
+    }
+
+    return message;
   }
 }
 
@@ -138,7 +150,10 @@ reader.consume();
 const messageCount = 3;
 
 for (let index = 1; index <= messageCount; index++) {
-  setTimeout(() => writer.write("key", "value"), index * 1000);
+  setTimeout(
+    () => writer.write({ key1: "value1", key2: "value2" }),
+    index * 1000
+  );
 }
 
 setTimeout(() => reader.stop(), (messageCount + 1) * 1000);
