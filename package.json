@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/finsor/redis-streams-nodejs-101/issues"
   },
-  "homepage": "https://github.com/finsor/redis-streams-nodejs-101#readme"
+  "homepage": "https://github.com/finsor/redis-streams-nodejs-101#readme",
+  "dependencies": {
+    "redis": "^3.0.2"
+  }
 }
